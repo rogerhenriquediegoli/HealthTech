@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import {Link} from 'expo-router'
 
-export default function cadastro() {
+export default function cadastro1() {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -38,10 +38,8 @@ export default function cadastro() {
           keyboardType="email-address"
           autoCapitalize="none"
         />
-
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Avançar</Text>
-        </TouchableOpacity>
+        <Link href='./cadastro2' style={styles.button}><Text style={styles.buttonText}>Avançar</Text></Link>
+        
       </View>
 
       <StatusBar style="auto" />
@@ -54,6 +52,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: "#6B6E71",
+    textAlign: 'center',
+    width: 300
   },
   captionInput: {
     color: "#0B3B60",
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Mantém a centralização dos inputs e botões
     justifyContent: 'center',
     marginBottom: 50,
+    margin: '0 auto'
   },
   button: {
     backgroundColor: '#0B3B60',
@@ -107,6 +108,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 10,
     width: '85%',
+    textAlign: 'center',
+    height: 48
   },
   buttonText: {
     color: '#fff',

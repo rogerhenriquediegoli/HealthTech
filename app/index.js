@@ -37,7 +37,7 @@ export default function index() {
           <Text style={styles.linkCadastro}>
             <Text>Ainda não tem conta? </Text>
             <Text style={[styles.linkText, { color: '#339CFF', fontWeight: 'bold' }]}>
-              <Link href='/cadastro'>Faça seu cadastro!</Link>
+              <Link href='/cadastro1'>Faça seu cadastro!</Link>
             </Text>
           </Text>
       </View>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     alignItems: 'center',
-    marginTop: 100,
+    marginTop: 90,
   },
   formContainer: {
     alignItems: 'center', // Mantém a centralização dos inputs e botões
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 10,
     width: '85%',
+    height: 48
   },
   buttonText: {
     color: '#fff',
