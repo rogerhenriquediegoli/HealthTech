@@ -25,9 +25,7 @@ export default function index() {
           secureTextEntry={true}
         />
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Entrar</Text>
-        </TouchableOpacity>
+        <Link href='/navegation' style={styles.button}><Text style={styles.buttonText}>Entrar</Text></Link>
         <TouchableOpacity onPress={() => alert('Esqueci minha senha!')}>
           <Text style={styles.linkText}>Esqueceu sua Senha?</Text>
         </TouchableOpacity>
@@ -109,6 +107,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
+    textAlign: 'center',
     width: '85%',
     height: 48
   },
