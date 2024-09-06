@@ -1,11 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { Link } from 'expo-router'
+import { StyleSheet, Text, View, Image, TextInput, ScrollView } from 'react-native';
+import { Link } from 'expo-router';
 
-export default function cadastro1() {
+export default function cadastro2() {
     return (
         <ScrollView>
-
             <View style={styles.container}>
                 <View style={styles.topContainer}>
                     <Image source={require('../assets/images/Logo.png')} style={styles.imagem} />
@@ -17,37 +16,35 @@ export default function cadastro1() {
                     <TextInput
                         style={styles.input}
                         placeholder="Insira seu CEP"
-                        keyboardType="email-address"
+                        keyboardType="numeric"  // Alterado para permitir números
                         autoCapitalize="none"
                     />
                     <Text style={styles.captionInput}>Endereço</Text>
                     <TextInput
                         style={styles.input}
                         placeholder="Insira seu endereço"
-                        secureTextEntry={true}
                     />
                     <Text style={styles.captionInput}>Número</Text>
                     <TextInput
                         style={styles.input}
                         placeholder="Insira seu número"
-                        keyboardType="email-address"
+                        keyboardType="numeric"  // Alterado para permitir números
                         autoCapitalize="none"
                     />
                     <Text style={styles.captionInput}>Complemento</Text>
                     <TextInput
                         style={styles.input}
                         placeholder="Insira seu complemento"
-                        keyboardType="email-address"
-                        autoCapitalize="none"
                     />
 
                     <Text style={styles.captionInput}>Telefone</Text>
                     <TextInput
                         style={styles.input}
                         placeholder="(00) 00000-0000"
-                        keyboardType="email-address"
+                        keyboardType="phone-pad"  // Alterado para usar teclado numérico de telefone
                         autoCapitalize="none"
                     />
+
                     <Link href='./cadastro1' style={[styles.button, { backgroundColor: '#90989F' }]}><Text style={styles.buttonText}>Voltar</Text></Link>
                     <Link href='./cadastro3' style={styles.button}><Text style={styles.buttonText}>Avançar</Text></Link>
                 </View>
@@ -70,9 +67,9 @@ const styles = StyleSheet.create({
         color: "#0B3B60",
         fontWeight: 'bold',
         fontSize: 18,
-        alignSelf: '', // Alinha o texto à esquerda
-        marginBottom: 5, // Adiciona um espaço abaixo do texto
-        width: '85%', // Certifica-se de que o texto ocupa a largura do input
+        alignSelf: '',
+        marginBottom: 5,
+        width: '85%',
     },
     imagem: {
         width: 180,
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
     },
     formContainer: {
-        alignItems: 'center', // Mantém a centralização dos inputs e botões
+        alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 50,
     },
@@ -126,18 +123,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
-        fontSize: 16,
-    },
-    linkText: {
-        color: '#0B3B60',
-        marginTop: 15,
-        textDecorationLine: 'underline',
-        fontSize: 16,
-    },
-
-    linkCadastro: {
-        color: '#0B3B60',
-        marginTop: 15,
         fontSize: 16,
     }
 });

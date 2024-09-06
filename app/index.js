@@ -56,9 +56,8 @@ const styles = StyleSheet.create({
     color: "#0B3B60",
     fontWeight: 'bold',
     fontSize: 18,
-    alignSelf: '', // Alinha o texto à esquerda
-    marginBottom: 5, // Adiciona um espaço abaixo do texto
-    width: '85%', // Certifica-se de que o texto ocupa a largura do input
+    marginBottom: 5,
+    width: '85%',
   },
   imagem: {
     width: 180,
@@ -75,13 +74,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#F8F8F8',
 
-    // Estilos de sombra para iOS
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
-    // Estilos de sombra para Android
     elevation: 5,
   },
   container: {
@@ -94,7 +91,7 @@ const styles = StyleSheet.create({
     marginTop: 90,
   },
   formContainer: {
-    alignItems: 'center', // Mantém a centralização dos inputs e botões
+    alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 30,
   },

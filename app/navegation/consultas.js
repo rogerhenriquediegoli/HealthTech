@@ -12,8 +12,10 @@ export default function Inicio() {
                 <TouchableOpacity style={styles.button}>
                             <Text style={styles.buttonText}>Agendar outra consulta</Text>
                     </TouchableOpacity>
+                    
+                    <Text style={styles.textsLeft}>Próximas consultas</Text>
 
-                    <View style={[styles.depoimentos, styles.borderBox]}>
+                    <View style={[styles.depoimentos, styles.borderBox, styles.corDiferente]}>
 
                         <View style={styles.depoimentoBlock}>
                             <Image source={require('../../assets/images/Mulher1.png')} style={styles.image} />
@@ -28,16 +30,16 @@ export default function Inicio() {
                             <Text style={styles.buttonText}>Cancelar</Text>
                         </TouchableOpacity>
                     </View>
+                    <Text style={styles.line}></Text>
 
-                {Array.from({ length: depoimentosCount }).map((_, index) => (
+                    <Text style={styles.textsLeft}>Consultas passadas</Text>
                     <View style={styles.depoimentos}>
-
-
-                        <View key={index} style={styles.depoimentoBlock}>
+                        <View style={styles.depoimentoBlock}>
                             <Image source={require('../../assets/images/Mulher1.png')} style={styles.image} />
                             <View style={styles.textContainer}>
                                 <Text style={styles.depoimentoText}>Dra. Ana Lúcia</Text>
                                 <Text style={[styles.depoimentoText, styles.depoimentoTextSecundario]}>Angiologista</Text>
+                                <Text style={[styles.depoimentoText, styles.depoimentoTextSecundario]}>01/02/2022</Text>
                             </View>
                         </View>
 
@@ -45,8 +47,38 @@ export default function Inicio() {
                             <Text style={styles.buttonText}>Agendar consulta</Text>
                         </TouchableOpacity>
                     </View>
-                ))}
-                <Text style={{marginTop: 120}}/>
+
+                    <View style={styles.depoimentos}>
+                        <View style={styles.depoimentoBlock}>
+                            <Image source={require('../../assets/images/Homem.png')} style={styles.image} />
+                            <View style={styles.textContainer}>
+                                <Text style={styles.depoimentoText}>Dr. Paulo Matos</Text>
+                                <Text style={[styles.depoimentoText, styles.depoimentoTextSecundario]}>Otorrinolaringologista</Text>
+                                <Text style={[styles.depoimentoText, styles.depoimentoTextSecundario]}>09/08/2022</Text>
+                            </View>
+                        </View>
+
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.buttonText}>Agendar consulta</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.depoimentos}>
+                        <View style={styles.depoimentoBlock}>
+                            <Image source={require('../../assets/images/Mulher2.png')} style={styles.image} />
+                            <View style={styles.textContainer}>
+                                <Text style={styles.depoimentoText}>Dra. Mariana Luz</Text>
+                                <Text style={[styles.depoimentoText, styles.depoimentoTextSecundario]}>Mastologista</Text>
+                                <Text style={[styles.depoimentoText, styles.depoimentoTextSecundario]}>07/10/2022</Text>
+                            </View>
+                        </View>
+
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.buttonText}>Agendar consulta</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                <Text style={{marginTop: 140}}/>
             </ScrollView>
         </View>
     );
@@ -58,6 +90,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#f5fcff',
         paddingHorizontal: 20,
     },
+
+    corDiferente:{
+        backgroundColor: '#FFFFFF'
+    },
+    textsLeft:{
+        color: '#339CFF',
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 20,
+    },  
+    line:{
+        borderBottomColor: "#90989F",
+        borderBottomWidth: 1,
+        marginTop: 5
+
+    },  
     scrollViewContent: {
         flexGrow: 1,
         justifyContent: 'center',
@@ -143,7 +191,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         borderRadius: 5,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#C2E1FF',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,

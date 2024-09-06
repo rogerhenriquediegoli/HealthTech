@@ -11,26 +11,22 @@ export default function Inicio() {
                     <TextInput
                         style={styles.input}
                         placeholder="Digite a especialidade"
-                        secureTextEntry={true}
                     />
 
                     <TextInput
                         style={styles.input}
                         placeholder="Digite sua localização"
-                        secureTextEntry={true}
                     />
 
                     <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>Buscar</Text>
+                        <Text style={styles.buttonText}>Buscar</Text>
                     </TouchableOpacity>
                 </View>
 
                 <Text style={styles.titulo}>Resultado da busca</Text>
                 {Array.from({ length: depoimentosCount }).map((_, index) => (
-                    <View style={styles.depoimentos}>
-
-
-                        <View key={index} style={styles.depoimentoBlock}>
+                    <View key={index} style={styles.depoimentos}>
+                        <View style={styles.depoimentoBlock}>
                             <Image source={require('../../assets/images/Mulher1.png')} style={styles.image} />
                             <View style={styles.textContainer}>
                                 <Text style={styles.depoimentoText}>Dra. Ana Lúcia</Text>
@@ -58,22 +54,6 @@ const styles = StyleSheet.create({
     scrollViewContent: {
         flexGrow: 1,
         justifyContent: 'center',
-    },
-    textBottom: {
-        color: '#6B6E71',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginTop: 5,
-        marginBottom: 10,
-    },
-    texts: {
-        fontSize: 19,
-        color: '#90989F',
-        padding: 15,
-        marginBottom: 0,
-        textAlign: 'left',
-        maxWidth: '100%',
-        alignSelf: 'center',
     },
     button: {
         backgroundColor: '#0B3B60',
@@ -146,7 +126,7 @@ const styles = StyleSheet.create({
         marginTop: 25,
     },
     depoimentoTextSecundario: {
-        fontWeight: 'normal', // Remover o negrito para este estilo
+        fontWeight: 'normal',
     },
     depoimentoBlock: {
         flexDirection: 'row',

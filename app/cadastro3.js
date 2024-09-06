@@ -4,11 +4,17 @@ import {Link} from 'expo-router'
 import { CheckBox } from 'react-native-elements';
 import React, { useState } from 'react';
 
-export default function cadastro1() {
+export default function cadastro3() {
   const [selectedPlans, setSelectedPlans] = useState({});
 
   const handleCheckBoxChange = (plan) => {
-    setSelectedPlans({ ...selectedPlans, [plan]: !selectedPlans[plan] });
+    if (plan === 'Não tenho plano') {
+      // Se selecionar "Não tenho plano", desmarcar todos os outros planos
+      setSelectedPlans({ 'Não tenho plano': !selectedPlans['Não tenho plano'] });
+    } else {
+      // Se selecionar outro plano, desmarcar "Não tenho plano"
+      setSelectedPlans({ ...selectedPlans, [plan]: !selectedPlans[plan], 'Não tenho plano': false });
+    }
   };
 
   return (
@@ -21,18 +27,18 @@ export default function cadastro1() {
       <View style={styles.formContainer}>
         <Text style={styles.caption}>Selecione os planos: </Text>
         <View style={styles.boxOptions}>
-            {["Sulamerica", "Unimed", "Bradesco", "Amil", "Biosaúde", "Biovida", "Outros", "Não tenho plano"].map((plan) => (
+          {["Sulamerica", "Unimed", "Bradesco", "Amil", "Biosaúde", "Biovida", "Outros", "Não tenho plano"].map((plan) => (
             <CheckBox
-                key={plan}
-                title={plan}
-                checked={selectedPlans[plan] || false}
-                onPress={() => handleCheckBoxChange(plan)}
-                containerStyle={styles.checkboxContainer}
-                textStyle={styles.checkboxText}
-                checkedColor='#0B3B60' 
-                uncheckedColor='#90989F' 
+              key={plan}
+              title={plan}
+              checked={selectedPlans[plan] || false}
+              onPress={() => handleCheckBoxChange(plan)}
+              containerStyle={styles.checkboxContainer}
+              textStyle={styles.checkboxText}
+              checkedColor='#0B3B60' 
+              uncheckedColor='#90989F' 
             />
-            ))}
+          ))}
         </View>
 
         <Link href='./cadastro2' style={[styles.button, { backgroundColor: '#90989F' }]}><Text style={styles.buttonText}>Voltar</Text></Link>
@@ -58,8 +64,7 @@ const styles = StyleSheet.create({
     height: 180,
     marginBottom: 30,
   },
-
-  boxOptions:{
+  boxOptions: {
     marginBottom: 30
   },
   container: {
@@ -72,8 +77,8 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   formContainer: {
-    width: '85%', // Alinha o conteúdo à esquerda e centraliza o bloco todo
-    alignSelf: 'center', // Centraliza o bloco na tela
+    width: '85%', 
+    alignSelf: 'center', 
     justifyContent: 'center',
     marginBottom: 100,
   },
@@ -89,7 +94,6 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     paddingLeft: 0,
     marginVertical: -5,
-
   },
   checkboxText: {
     fontSize: 16,
