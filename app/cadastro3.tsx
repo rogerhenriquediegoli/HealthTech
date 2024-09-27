@@ -1,13 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Linking} from 'react-native';
-import {Link} from 'expo-router'
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Link } from 'expo-router';
 import { CheckBox } from 'react-native-elements';
 import React, { useState } from 'react';
 
-export default function cadastro3() {
-  const [selectedPlans, setSelectedPlans] = useState({});
+type SelectedPlans = {
+  [key: string]: boolean;
+};
 
-  const handleCheckBoxChange = (plan) => {
+export default function Cadastro3() {
+  const [selectedPlans, setSelectedPlans] = useState<SelectedPlans>({});
+
+  const handleCheckBoxChange = (plan: string) => {
     if (plan === 'Não tenho plano') {
       // Se selecionar "Não tenho plano", desmarcar todos os outros planos
       setSelectedPlans({ 'Não tenho plano': !selectedPlans['Não tenho plano'] });
@@ -35,14 +39,18 @@ export default function cadastro3() {
               onPress={() => handleCheckBoxChange(plan)}
               containerStyle={styles.checkboxContainer}
               textStyle={styles.checkboxText}
-              checkedColor='#0B3B60' 
-              uncheckedColor='#90989F' 
+              checkedColor='#0B3B60'
+              uncheckedColor='#90989F'
             />
           ))}
         </View>
 
-        <Link href='./cadastro2' style={[styles.button, { backgroundColor: '#90989F' }]}><Text style={styles.buttonText}>Voltar</Text></Link>
-        <Link href='/' style={styles.button}><Text style={styles.buttonText}>Cadastrar</Text></Link>
+        <Link href='./cadastro2' style={[styles.button, { backgroundColor: '#90989F' }]}>
+          <Text style={styles.buttonText}>Voltar</Text>
+        </Link>
+        <Link href='/' style={styles.button}>
+          <Text style={styles.buttonText}>Cadastrar</Text>
+        </Link>
       </View>
 
       <StatusBar style="auto" />
@@ -77,8 +85,8 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   formContainer: {
-    width: '85%', 
-    alignSelf: 'center', 
+    width: '85%',
+    alignSelf: 'center',
     justifyContent: 'center',
     marginBottom: 100,
   },

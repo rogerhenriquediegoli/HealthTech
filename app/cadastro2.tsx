@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, ScrollView } from 'react-native';
 import { Link } from 'expo-router';
+import React from 'react';
 
-export default function cadastro2() {
+export default function Cadastro2() {
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -16,7 +17,7 @@ export default function cadastro2() {
                     <TextInput
                         style={styles.input}
                         placeholder="Insira seu CEP"
-                        keyboardType="numeric"  // Alterado para permitir números
+                        keyboardType="numeric"  // Teclado numérico
                         autoCapitalize="none"
                     />
                     <Text style={styles.captionInput}>Endereço</Text>
@@ -28,7 +29,7 @@ export default function cadastro2() {
                     <TextInput
                         style={styles.input}
                         placeholder="Insira seu número"
-                        keyboardType="numeric"  // Alterado para permitir números
+                        keyboardType="numeric"  // Teclado numérico
                         autoCapitalize="none"
                     />
                     <Text style={styles.captionInput}>Complemento</Text>
@@ -41,12 +42,16 @@ export default function cadastro2() {
                     <TextInput
                         style={styles.input}
                         placeholder="(00) 00000-0000"
-                        keyboardType="phone-pad"  // Alterado para usar teclado numérico de telefone
+                        keyboardType="phone-pad"  // Teclado numérico para telefone
                         autoCapitalize="none"
                     />
 
-                    <Link href='./cadastro1' style={[styles.button, { backgroundColor: '#90989F' }]}><Text style={styles.buttonText}>Voltar</Text></Link>
-                    <Link href='./cadastro3' style={styles.button}><Text style={styles.buttonText}>Avançar</Text></Link>
+                    <Link href='./cadastro1' style={[styles.button, { backgroundColor: '#90989F' }]}>
+                        <Text style={styles.buttonText}>Voltar</Text>
+                    </Link>
+                    <Link href='./cadastro3' style={styles.button}>
+                        <Text style={styles.buttonText}>Avançar</Text>
+                    </Link>
                 </View>
 
                 <StatusBar style="auto" />
@@ -61,13 +66,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#6B6E71",
         textAlign: 'center',
-        width: 300
+        width: 300,
     },
     captionInput: {
         color: "#0B3B60",
         fontWeight: 'bold',
         fontSize: 18,
-        alignSelf: '',
         marginBottom: 5,
         width: '85%',
     },
@@ -117,12 +121,12 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         width: '85%',
         textAlign: 'center',
-        height: 48
+        height: 48,
     },
     buttonText: {
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 16,
-    }
+    },
 });

@@ -1,16 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Linking} from 'react-native';
-import {Link} from 'expo-router'
+import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { Link } from 'expo-router';
+import React from 'react';
 
-export default function index() {
+export default function Cadastro1() {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
         <Image source={require('../assets/images/Logo.png')} style={styles.imagem} />
-        <Text style={styles.titulo}>Faça login em sua conta</Text>
+        <Text style={styles.titulo}>Insira alguns dados básicos:</Text>
       </View>
 
       <View style={styles.formContainer}>
+        <Text style={styles.captionInput}>Nome Completo</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Digite seu nome completo"
+          autoCapitalize="words"
+        />
         <Text style={styles.captionInput}>Email</Text>
         <TextInput
           style={styles.input}
@@ -18,26 +25,21 @@ export default function index() {
           keyboardType="email-address"
           autoCapitalize="none"
         />
-        <Text style={styles.captionInput}>Senha</Text>
+        <Text style={styles.captionInput}>Crie uma senha</Text>
         <TextInput
           style={styles.input}
-          placeholder="Insira a sua senha"
+          placeholder="Insira sua senha"
           secureTextEntry={true}
         />
-
-        <Link href='/navegation' style={styles.button}><Text style={styles.buttonText}>Entrar</Text></Link>
-        <TouchableOpacity onPress={() => alert('Esqueci minha senha!')}>
-          <Text style={styles.linkText}>Esqueceu sua Senha?</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.bottomContainer}>
-          <Text style={styles.linkCadastro}>
-            <Text>Ainda não tem conta? </Text>
-            <Text style={[styles.linkText, { color: '#339CFF', fontWeight: 'bold' }]}>
-              <Link href='/cadastro1'>Faça seu cadastro!</Link>
-            </Text>
-          </Text>
+        <Text style={styles.captionInput}>Repita a senha</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Repita sua senha"
+          secureTextEntry={true}
+        />
+        <Link href='./cadastro2' style={styles.button}>
+          <Text style={styles.buttonText}>Avançar</Text>
+        </Link>
       </View>
 
       <StatusBar style="auto" />
@@ -50,7 +52,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: "#6B6E71",
-    marginBottom: 20,
+    textAlign: 'center',
+    width: 300,
   },
   captionInput: {
     color: "#0B3B60",
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
   imagem: {
     width: 180,
     height: 180,
-    marginBottom: 55,
+    marginBottom: 30,
   },
   input: {
     width: '85%',
@@ -74,11 +77,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#F8F8F8',
 
+    // Sombras no iOS
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
+    // Sombras no Android
     elevation: 5,
   },
   container: {
@@ -88,42 +93,26 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     alignItems: 'center',
-    marginTop: 90,
+    marginTop: 50,
   },
   formContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 30,
-  },
-  bottomContainer: {
-    alignItems: 'center',
-    marginBottom: 70,
+    marginBottom: 50,
   },
   button: {
     backgroundColor: '#0B3B60',
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
-    textAlign: 'center',
     width: '85%',
-    height: 48
+    textAlign: 'center',
+    height: 48,
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 16,
-  },
-  linkText: {
-    color: '#0B3B60',
-    marginTop: 15,
-    textDecorationLine: 'underline',
-    fontSize: 16,
-  },
-
-  linkCadastro: {
-    color: '#0B3B60',
-    marginTop: 15,
     fontSize: 16,
   }
 });

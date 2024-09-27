@@ -1,5 +1,7 @@
-import { Tabs } from "expo-router";
+import { Slot, Tabs } from "expo-router";
 import { FontAwesome } from '@expo/vector-icons';
+import { SQLiteProvider } from "expo-sqlite";
+import { inicializeDatabase } from "../database/inicializeDatabase";
 
 export default function Layout() {
     return (
@@ -10,6 +12,10 @@ export default function Layout() {
                 tabBarInactiveTintColor: '#FFFFFF', // Cor do ícone inativo
             }}
         >
+            <SQLiteProvider databaseName="CrudProject.db" onInit={inicializeDatabase}>
+                <Slot/>
+            </SQLiteProvider>
+
             <Tabs.Screen 
                 name='index' 
                 options={{

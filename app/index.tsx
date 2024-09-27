@@ -1,45 +1,44 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import {Link} from 'expo-router'
+import { Link } from 'expo-router';
 
-export default function cadastro1() {
+export default function Index(): JSX.Element {
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
         <Image source={require('../assets/images/Logo.png')} style={styles.imagem} />
-        <Text style={styles.titulo}>Insira alguns dados básicos:</Text>
+        <Text style={styles.titulo}>Faça login em sua conta</Text>
       </View>
 
       <View style={styles.formContainer}>
         <Text style={styles.captionInput}>Email</Text>
         <TextInput
           style={styles.input}
-          placeholder="Digite seu nome completo"
+          placeholder="Insira seu endereço de email"
           keyboardType="email-address"
           autoCapitalize="none"
         />
         <Text style={styles.captionInput}>Senha</Text>
         <TextInput
           style={styles.input}
-          placeholder="Insira seu endereço de email"
+          placeholder="Insira a sua senha"
           secureTextEntry={true}
         />
-        <Text style={styles.captionInput}>Crie uma senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Insira sua senha"
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-        <Text style={styles.captionInput}>Repita a senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Insira sua senha"
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-        <Link href='./cadastro2' style={styles.button}><Text style={styles.buttonText}>Avançar</Text></Link>
-        
+
+        <Link href='/navegation' style={styles.button}><Text style={styles.buttonText}>Entrar</Text></Link>
+        <TouchableOpacity onPress={() => alert('Esqueci minha senha!')}>
+          <Text style={styles.linkText}>Esqueceu sua Senha?</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.bottomContainer}>
+        <Text style={styles.linkCadastro}>
+          <Text>Ainda não tem conta? </Text>
+          <Text style={[styles.linkText, { color: '#339CFF', fontWeight: 'bold' }]}>
+            <Link href='/cadastro1'>Faça seu cadastro!</Link>
+          </Text>
+        </Text>
       </View>
 
       <StatusBar style="auto" />
@@ -52,8 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: "#6B6E71",
-    textAlign: 'center',
-    width: 300
+    marginBottom: 20,
   },
   captionInput: {
     color: "#0B3B60",
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
   imagem: {
     width: 180,
     height: 180,
-    marginBottom: 30,
+    marginBottom: 55,
   },
   input: {
     width: '85%',
@@ -91,26 +89,42 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 90,
   },
   formContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 50,
+    marginBottom: 30,
+  },
+  bottomContainer: {
+    alignItems: 'center',
+    marginBottom: 70,
   },
   button: {
     backgroundColor: '#0B3B60',
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
-    width: '85%',
     textAlign: 'center',
+    width: '85%',
     height: 48
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
+    fontSize: 16,
+  },
+  linkText: {
+    color: '#0B3B60',
+    marginTop: 15,
+    textDecorationLine: 'underline',
+    fontSize: 16,
+  },
+
+  linkCadastro: {
+    color: '#0B3B60',
+    marginTop: 15,
     fontSize: 16,
   }
 });
