@@ -1,10 +1,10 @@
-import { Slot, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import { FontAwesome } from '@expo/vector-icons';
-import { SQLiteProvider } from "expo-sqlite";
-import { inicializeDatabase } from "../database/inicializeDatabase";
+import { DatabaseContext } from './database/DatabaseContext';
 
 export default function Layout() {
     return (
+        <DatabaseContext>
         <Tabs
             screenOptions={{
                 tabBarStyle: { backgroundColor: '#0B3B60' }, // Cor de fundo da barra de navegação
@@ -12,10 +12,6 @@ export default function Layout() {
                 tabBarInactiveTintColor: '#FFFFFF', // Cor do ícone inativo
             }}
         >
-            <SQLiteProvider databaseName="CrudProject.db" onInit={inicializeDatabase}>
-                <Slot/>
-            </SQLiteProvider>
-
             <Tabs.Screen 
                 name='index' 
                 options={{
@@ -48,7 +44,7 @@ export default function Layout() {
                     tabBarLabel: 'Explorar',
                     headerShown: false,
                 }}
-            />
+                />
             <Tabs.Screen 
                 name='perfil' 
                 options={{
@@ -61,5 +57,6 @@ export default function Layout() {
                 }}
             />
         </Tabs>
+        </DatabaseContext>
     );
 }
